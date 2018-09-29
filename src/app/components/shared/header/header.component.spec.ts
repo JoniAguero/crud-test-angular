@@ -22,4 +22,10 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('contain title', () => {
+    expect(component.title).toContain('Posts');
+  });
+
+
 });
