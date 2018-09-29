@@ -4,16 +4,13 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-navbar',
   template: `<ul class="nav nav-tabs">
               <li class="nav-item">
-                <a class="nav-link active" href="/hola">All Posts</a>
+                <a class="nav-link active" href="/posts">All Posts</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/chau">Create Post</a>
+                <a class="nav-link" href="/create">Create Post</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+                <a class="nav-link" href="/about">About</a>
               </li>
             </ul>`
 })
