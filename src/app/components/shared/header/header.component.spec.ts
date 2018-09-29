@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
+import { By } from '@angular/platform-browser';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -25,6 +26,11 @@ describe('HeaderComponent', () => {
 
   it('contain title', () => {
     expect(component.title).toContain('Posts');
+  });
+
+  it('contain title IN TEMPLATE', () => {
+    const elem = HTMLElement = fixture.debugElement.query(By.css('h1')).nativeElement;
+    expect(elem.innerHTML).toContain(component.title);
   });
 
 
