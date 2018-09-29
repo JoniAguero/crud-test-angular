@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-about',
   template: ` <h2>About Us</h2>
-              <p>
+              <p class="text-about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur malesuada porta. Integer et ipsum vitae
                 erat sodales varius. In malesuada gravida sapien et fermentum. Nulla in lorem aliquam, dapibus nisl vel, vestibulum
                 velit. Phasellus ornare turpis quis orci interdum, et faucibus ipsum fermentum. Aliquam posuere porttitor elit, non
