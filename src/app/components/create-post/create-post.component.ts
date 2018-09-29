@@ -18,10 +18,16 @@ export class CreatePostComponent implements OnInit, OnDestroy {
               private _postsService: PostsService) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      this.id = +params['id'];
-      this.getPost(this.id);
-    });
+    if (this.route.params) {
+      this.sub = this.route.params.subscribe(params => {
+        this.id = +params['id'];
+        if (!isNaN(this.id)) {
+          this.getPost(this.id);
+        } else {
+          this.id = undefined;
+        }
+      });
+    }
   }
 
   getPost(id: number) {
