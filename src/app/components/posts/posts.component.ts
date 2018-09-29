@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PostsService } from '../../shared/services/posts.service';
+
 
 @Component({
   selector: 'app-posts',
@@ -10,17 +12,17 @@ export class PostsComponent implements OnInit {
 
   posts: any[] = [];
 
-  constructor(private _postsService: PostsService) { }
+  constructor(private _postsService: PostsService,
+              private router: Router) { }
 
   ngOnInit() {
     this._postsService.getAllPosts().subscribe( res => {
       this.posts = res;
-      console.log(this.posts);
     });
   }
 
   view(id: number) {
-    console.log(id);
+    this.router.navigate([`/post/${id}`]);
   }
 
   edit(id: number) {

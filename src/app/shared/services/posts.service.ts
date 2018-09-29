@@ -12,4 +12,8 @@ export class PostsService {
         return this.http.get<string[]>('https://jsonplaceholder.typicode.com/posts');
     }
 
+    getPost(id: number): Observable<string[]> {
+        return this.http.get<any>(`https://jsonplaceholder.typicode.com/posts/${id}`);
+    }
+
 }
