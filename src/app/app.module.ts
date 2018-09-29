@@ -13,11 +13,14 @@ import { PostComponent } from './components/post/post.component';
 
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
+import { CreatePostComponent } from './components/create-post/create-post.component';
 
 const routes: Routes = [
   { path: 'posts', component: PostsComponent },
   { path: 'post/:id', component: PostComponent },
-  { path: 'about', component: AboutComponent }
+  { path: 'create', component: CreatePostComponent },
+  { path: 'about', component: AboutComponent },
+  { path: '', component: PostsComponent }
 ];
 
 @NgModule({
@@ -29,6 +32,7 @@ const routes: Routes = [
     PostsComponent,
     PostComponent,
     AboutComponent,
+    CreatePostComponent,
   ],
   imports: [
     BrowserModule, CommonModule, HttpClientModule, RouterModule.forRoot(routes),
