@@ -19,4 +19,16 @@ export class PostsComponent implements OnInit {
     });
   }
 
+  view(id: number) {
+    console.log(id);
+  }
+
+  edit(id: number) {
+    console.log(id);
+  }
+
+  delete(id: number) {
+    console.log(id);
+  }
+
 }
