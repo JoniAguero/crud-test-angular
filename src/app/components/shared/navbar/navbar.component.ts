@@ -4,10 +4,10 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-navbar',
   template: `<ul class="nav nav-tabs">
               <li class="nav-item">
-                <a class="nav-link active" href="/hola">Active</a>
+                <a class="nav-link active" href="/hola">All Posts</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/chau">Link</a>
+                <a class="nav-link" href="/chau">Create Post</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
@@ -15,8 +15,7 @@ import { Component, OnInit } from '@angular/core';
               <li class="nav-item">
                 <a class="nav-link disabled" href="#">Disabled</a>
               </li>
-            </ul>`,
-  styleUrls: ['./navbar.component.css']
+            </ul>`
 })
 export class NavbarComponent implements OnInit {
 

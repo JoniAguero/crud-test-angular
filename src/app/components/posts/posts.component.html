@@ -1,0 +1,21 @@
+<table class="table table-striped text-center">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of posts">
+      <th scope="row">{{post.id}}</th>
+      <td>{{post.title}}</td>
+        <td>
+            <button type="button" class="mr-1 btn btn-primary">View</button>
+            <button type="button" class="mr-1 btn btn-success">Edit</button>
+            <button type="button" class="mr-1 btn btn-danger">Delete</button>
+        </td> 
+    </tr>
+
+  </tbody>
+</table>

@@ -11,8 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent {
 
-  constructor() { }
-
   title = 'Angular Posts';
+
+  constructor() { }
 
 }
