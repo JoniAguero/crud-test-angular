@@ -24,14 +24,13 @@ import { PostsService } from '../../shared/services/posts.service';
 export class PostComponent implements OnInit {
 
   id: number;
-  sub: any;
   post: any;
 
   constructor(private route: ActivatedRoute,
     private _postsService: PostsService) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.id = +params['id'];
       this.getPost(this.id);
     });
@@ -40,7 +39,6 @@ export class PostComponent implements OnInit {
   getPost(id: number) {
     this._postsService.getPost(id).subscribe(res => {
       this.post = res;
-      console.log(this.post);
     });
   }
 
