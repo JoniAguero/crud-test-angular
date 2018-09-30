@@ -45,4 +45,12 @@ describe('PostsComponent', () => {
     expect(spy).toHaveBeenCalledWith([`/post/${id}`]);
   });
 
+  it('redirect to /post in Edit Action', () => {
+    const ROUTER = TestBed.get(Router);
+    const spy = spyOn(ROUTER, 'navigate');
+    const id = 1;
+    component.edit(id);
+    expect(spy).toHaveBeenCalledWith([`/edit/${id}`]);
+  });
+
 });
