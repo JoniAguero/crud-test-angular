@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { AboutComponent } from './about.component';
 
@@ -22,4 +23,10 @@ describe('AboutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('contain describe', () => {
+    const elem = HTMLElement = fixture.debugElement.query(By.css('p')).nativeElement;
+    expect(elem).toBeTruthy();
+  });
+
 });

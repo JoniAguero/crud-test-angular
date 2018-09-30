@@ -33,7 +33,6 @@ export class CreatePostComponent implements OnInit, OnDestroy {
   getPost(id: number) {
     this._postsService.getPost(id).subscribe(res => {
       this.post = res;
-      console.log(this.post);
     });
   }
 
