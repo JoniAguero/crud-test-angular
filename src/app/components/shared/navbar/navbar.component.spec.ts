@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavbarComponent } from './navbar.component';
 import { By } from '@angular/platform-browser';
 import { RouterLinkWithHref } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HeaderComponent', () => {
     let component: NavbarComponent;
@@ -10,7 +11,8 @@ describe('HeaderComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [NavbarComponent]
+            declarations: [NavbarComponent],
+            imports: [RouterTestingModule],
         })
             .compileComponents();
     }));
@@ -25,10 +27,9 @@ describe('HeaderComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    xit('navs cointain /posts', () => {
+    it('navs cointain /posts', () => {
         fixture = TestBed.createComponent(NavbarComponent);
         const navs = fixture.debugElement.queryAll(By.directive( RouterLinkWithHref ));
-        console.log('navs', navs);
         let existe = false;
         for (const nav of navs) {
             if (nav.attributes['routerLink'] === '/posts') {
