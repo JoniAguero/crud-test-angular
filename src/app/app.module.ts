@@ -11,18 +11,11 @@ import { PostsComponent } from './components/posts/posts.component';
 import { PostsService } from './shared/services/posts.service';
 import { PostComponent } from './components/post/post.component';
 
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
+import { ROUTES } from './routes/app.routes';
 
-const routes: Routes = [
-  { path: 'posts', component: PostsComponent },
-  { path: 'post/:id', component: PostComponent },
-  { path: 'create', component: CreatePostComponent },
-  { path: 'edit/:id', component: CreatePostComponent },
-  { path: 'about', component: AboutComponent },
-  { path: '', component: PostsComponent }
-];
 
 @NgModule({
   declarations: [
@@ -36,7 +29,7 @@ const routes: Routes = [
     CreatePostComponent,
   ],
   imports: [
-    BrowserModule, CommonModule, HttpClientModule, RouterModule.forRoot(routes),
+    BrowserModule, CommonModule, HttpClientModule, RouterModule.forRoot(ROUTES),
   ],
   providers: [PostsService],
   bootstrap: [AppComponent]
