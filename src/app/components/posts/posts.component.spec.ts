@@ -4,6 +4,8 @@ import { PostsComponent } from './posts.component';
 import { PostsService } from '../../shared/services/posts.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import { RouterTestingModule } from '@angular/router/testing';
+
 describe('PostsComponent', () => {
   let component: PostsComponent;
   let fixture: ComponentFixture<PostsComponent>;
@@ -14,6 +16,7 @@ describe('PostsComponent', () => {
       providers: [PostsService],
       imports: [
         HttpClientModule,
+        RouterTestingModule,
       ],
     })
     .compileComponents();
