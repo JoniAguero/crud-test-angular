@@ -13,11 +13,11 @@ const initialState: State = {
     switch (action.type) {
         case SET_POSTS:
             return {
-                posts: {
+                posts: [
                     ...action.posts.map( item => {
                         return {...item};
-                    })
-                }
+                    })]
+                
             };
         case UNSET_POSTS:
             return {

@@ -17,7 +17,7 @@ export class PostsService {
     getAllPosts() {
         this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts').subscribe(res => {
             this.posts = res;
-            this.store.dispatch(new SetPostsAction(this.posts))
+            this.store.dispatch(new SetPostsAction(this.posts));
         })
     }
 

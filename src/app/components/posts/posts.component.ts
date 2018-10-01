@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostsService } from '../../shared/services/posts.service';
+import { Store } from '@ngrx/store';
+import { State } from '../../store/posts.reducer';
+import { Post } from '../../shared/model/post.model';
 
 
 @Component({
@@ -10,13 +13,19 @@ import { PostsService } from '../../shared/services/posts.service';
 })
 export class PostsComponent implements OnInit {
 
-  posts: any[] = [];
+  posts: Post[];
 
   constructor(private _postsService: PostsService,
+              private store: Store<State>,
               private router: Router) { }
 
   ngOnInit() {
     this._postsService.getAllPosts();
+    this.store.select('posts').subscribe((res: any) => {
+      if(res.posts.length > 0) {
+        this.posts = res.posts;  
+      }
+    })
   }
 
   view(id: number) {
