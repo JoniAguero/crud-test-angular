@@ -16,9 +16,7 @@ export class PostsComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this._postsService.getAllPosts().subscribe( res => {
-      this.posts = res;
-    });
+    this._postsService.getAllPosts();
   }
 
   view(id: number) {

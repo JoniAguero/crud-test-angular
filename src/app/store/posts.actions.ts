@@ -1,13 +1,18 @@
 import { Action } from '@ngrx/store';
 import { Post } from '../shared/model/post.model';
 
- export const ADD = 'ADD POST';
+ export const SET_POSTS = '[SET POST] Set ...';
+ export const UNSET_POSTS = '[UNSET POSTS] Unset ...';
 
- export class Add implements Action {
-    readonly type = ADD;
-     posts: any;
-    constructor(public post: Post) { }
+export class SetPostsAction implements Action {
+    readonly type = SET_POSTS;
+    constructor(public posts: Post[]) { }
+}
+
+export class UnsetPostsAction implements Action {
+    readonly type = UNSET_POSTS;
 }
 
  export type typeActions =
-    Add;
+    SetPostsAction |
+    UnsetPostsAction;

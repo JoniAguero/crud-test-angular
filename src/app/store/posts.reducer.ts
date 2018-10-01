@@ -1,4 +1,4 @@
-import { typeActions, ADD } from './posts.actions';
+import { typeActions, SET_POSTS, UNSET_POSTS } from './posts.actions';
 import { Post } from '../shared/model/post.model';
 
  export interface State {
@@ -11,7 +11,7 @@ const initialState: State = {
 
  export function postReducer(state = initialState, action: typeActions) {
     switch (action.type) {
-        case ADD:
+        case SET_POSTS:
             return {
                 posts: {
                     ...action.posts.map( item => {
@@ -19,7 +19,11 @@ const initialState: State = {
                     })
                 }
             };
-         default:
+        case UNSET_POSTS:
+            return {
+                ie: []
+            };
+        default:
             return state;
     }
 }
