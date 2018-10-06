@@ -6,6 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
+import { StoreModule, Store } from '@ngrx/store';
+import { postReducer } from '../../store/posts.reducer';
+import {  SET_POSTS } from './../../store/posts.actions';
 
 class FakeRouter {
   navigate(params) {}
@@ -14,6 +17,8 @@ class FakeRouter {
 describe('PostsComponent', () => {
   let component: PostsComponent;
   let fixture: ComponentFixture<PostsComponent>;
+  let store: any;
+  let postService: PostsService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -22,6 +27,7 @@ describe('PostsComponent', () => {
       imports: [
         HttpClientModule,
         RouterTestingModule,
+        StoreModule.forRoot({ posts: postReducer }),
       ],
     })
     .compileComponents();
@@ -30,6 +36,9 @@ describe('PostsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PostsComponent);
     component = fixture.componentInstance;
+    store = fixture.debugElement.injector.get(Store);
+    postService = fixture.debugElement.injector.get(PostsService);
+    store.dispatch({ type: SET_POSTS });
     fixture.detectChanges();
   });
 

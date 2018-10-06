@@ -7,6 +7,7 @@ import { PostsService } from '../../shared/services/posts.service';
 import { Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
+<<<<<<< HEAD
 class FakeActivedRoute {
 
   private subject = new Subject();
@@ -20,15 +21,25 @@ class FakeActivedRoute {
   }
 
 }
+=======
+import { StoreModule, Store } from '@ngrx/store';
+import { postReducer } from '../../store/posts.reducer';
+import {  SET_POSTS } from './../../store/posts.actions';
+
+>>>>>>> 4204f8016e14baacfa6a371f92f737ffedf36f82
 
 describe('PostComponent', () => {
   let component: PostComponent;
   let fixture: ComponentFixture<PostComponent>;
+  let store: any;
+  let postService: PostsService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ PostComponent ],
-      imports: [RouterTestingModule, HttpClientTestingModule],
+      imports: [RouterTestingModule, 
+                HttpClientTestingModule,
+                StoreModule.forRoot({ posts: postReducer }),],
       providers: [PostsService],
     })
     .compileComponents();
@@ -37,6 +48,9 @@ describe('PostComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PostComponent);
     component = fixture.componentInstance;
+    store = fixture.debugElement.injector.get(Store);
+    postService = fixture.debugElement.injector.get(PostsService);
+    store.dispatch({ type: SET_POSTS });
     fixture.detectChanges();
   });
 
