@@ -24,6 +24,8 @@ class FakeActivedRoute {
 describe('PostComponent', () => {
   let component: PostComponent;
   let fixture: ComponentFixture<PostComponent>;
+  // let store: any;
+  let postService: PostsService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -38,6 +40,9 @@ describe('PostComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PostComponent);
     component = fixture.componentInstance;
+    // store = fixture.debugElement.injector.get(Store);
+    postService = fixture.debugElement.injector.get(PostsService);
+    // store.dispatch({ type: SET_POSTS });
     fixture.detectChanges();
   });
 
